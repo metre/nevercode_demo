@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:amap_base_map/amap_base_map.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 
 void main() async{
-  await AMap.init('27d67839721288be2ddd87b4fd868822');
   runApp(MyApp());
 }
 
@@ -63,6 +64,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+     final String assetName = 'assets/icon_test.svg';
+    final Widget svg = new SvgPicture.asset(
+        assetName,
+        color: Colors.red,
+        semanticsLabel: 'Acme Logo '
+    );
+
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -78,19 +88,18 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child:  AMapView(
-            onAMapViewCreated: (controller) { },
-            amapOptions: AMapOptions(
-              compassEnabled: false,
-              zoomControlsEnabled: true,
-              logoPosition: LOGO_POSITION_BOTTOM_CENTER,
-              camera: CameraPosition(
-                target: LatLng(40.851827, 111.801637),
-                zoom: 15,
-              ),
-            ),
+        child: Column(children: <Widget>[
+          Icon(FontAwesome5.getIconData("address-book")),
+          Icon(Ionicons.getIconData("ios-search")),
+          Icon(AntDesign.getIconData("stepforward")),
+          Icon(FontAwesome.getIconData("glass")),
+          Icon(MaterialIcons.getIconData("ac-unit")),
+          Icon(FontAwesome5.getIconData("address-book")),
+          Icon(FontAwesome5.getIconData("address-book",weight: IconWeight.Solid)),
+          Icon(FontAwesome5.getIconData("500px", weight: IconWeight.Brand)),
+          svg
+        ]),
         ),
-      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
