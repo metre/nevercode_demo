@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/metre/nevercode_demo.svg?branch=master)](https://travis-ci.com/metre/nevercode_demo)
+
 # nevercode_demo
 
 A new Flutter application.
